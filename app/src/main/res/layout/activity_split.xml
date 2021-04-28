@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".fragmentOne">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/splitInputId"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:fontFamily="monospace"
+            android:gravity="center"
+            android:hint="Type Here"
+            android:inputType="number"
+            android:textColor="#111111"
+            android:textSize="18dp"
+            android:focusedByDefault="false"/>
+
+        <TextView
+            android:id="@+id/splitOutputId"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="monospace"
+            android:gravity="center"
+            android:hint="Number of coins"
+            android:textSize="18dp"
+            android:textColor="#111111"/>
+
+        <Button
+            android:id="@+id/splitButtonId"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:fontFamily="monospace"
+            android:text="Split this amount"
+            android:textAllCaps="false"
+            android:textSize="18dp"
+            android:background="@drawable/corners"/>
+    </LinearLayout>
+
+</LinearLayout>

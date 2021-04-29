@@ -49,7 +49,6 @@ public class BigOstructure extends AppCompatActivity {
         map.add("space", "speed of light");
         map.add("milkey way", "galaxy");
 
-        //recyclerView.setAdapter(new ValueAdapter());
         valueAdapter = new ValueAdapter(map.values());
         RecyclerView.LayoutManager manager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(manager);
@@ -68,18 +67,11 @@ public class BigOstructure extends AppCompatActivity {
         String s = elementToDelete.getText().toString();
         if(map.values().contains(s)) {
             int i = map.values().indexOf(s);
-
             buildAlert(i);
-            map.delete(map.keys().get(i));
-            recyclerView.setAdapter(new ValueAdapter(map.values()));
-            elementToDelete.clearFocus();
-            elementToDelete.setText("");
         } else{
             elementToDelete.clearFocus();
             elementToDelete.setText("");
             Toast.makeText(this, "NO SUCH ELEMENT", Toast.LENGTH_SHORT).show();
-
-
         }
     }
 
@@ -91,7 +83,12 @@ public class BigOstructure extends AppCompatActivity {
                 +map.keys().get(i)
                 + "\nVALUE: "+map.values().get(i));
         builder.setCancelable(true);
-        builder.setPositiveButton("Done",null);
+        builder.setPositiveButton("Done",(dialog, which) -> {
+            map.delete(map.keys().get(i));
+            recyclerView.setAdapter(new ValueAdapter(map.values()));
+            elementToDelete.clearFocus();
+            elementToDelete.setText("");
+        });
         builder.setNeutralButton("cancel", null);
         builder.show();
     }

@@ -22,6 +22,8 @@
             android:layout_weight="1"
             android:inputType="textPersonName"
             android:hint="which element to delete?"
+            android:textColor="#C1D6A9"
+            android:fontFamily="monospace"
             />
 
         <Button

@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -54,12 +55,13 @@ public class NotContain extends AppCompatActivity {
     }
 
     public void add(View view){
-        String s = "";
+        String s = null;
         s=ed.getText().toString();
         if(s != null) {
             int a = Integer.parseInt(s);
             inputNumbers.add(a);
             ed.setText("");
+            tv.setText("");
         } else {
             Toast.makeText(NotContain.this, "Type Number", Toast.LENGTH_SHORT).show();
         }
@@ -71,24 +73,35 @@ public class NotContain extends AppCompatActivity {
         for(int j = 0; j<list.length; j++) {
             list[j]=inputNumbers.get(j);
         }
-        tv.setText(notContains(list) + " ");
+        tv.setText("Min integer, not contained\nin your array is: "+notContains(list) + " ");
         inputNumbers=new ArrayList<>();
-        list=new int[inputNumbers.size()];
+        list=new int [inputNumbers.size()];
         ed.clearFocus();
         ed.setText("");
     }
 
     // #3
     private int notContains(int[] array) {
-        int m=Integer.MAX_VALUE;
-        for(int a=0; a<array.length; a++) {
-            if(array[a] > 1 && array[a] < m)
-                m = array[a];
+        if(array.length==1 && array[0]>0){
+            if(array[0] == 1)
+                return 2;
+            return 1;
         }
-        if(m != Integer.MAX_VALUE)
-            return m-1;
-        Toast.makeText(NotContain.this, "No such element", Toast.LENGTH_SHORT).show();
-        return -1;
-
+        int length = array.length;
+        boolean[] isHere = new boolean[length+1];
+        for(int i=0; i<length; i++){
+            if(array[i]>0 && array[i]<=length)
+                isHere[array[i]]=true;
+        }
+        for(int i=1; i<length; i++){
+            if(!isHere[i])
+                return i;
+        }
+        // contains at least one negative
+        for(int i=0; i<length; i++){
+            if(array[i]<=0)
+                return length;
+        }
+        return length+1; // contains only positives from 1 to arrary.length
     }
 }

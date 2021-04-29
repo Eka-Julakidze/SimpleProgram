@@ -12,12 +12,13 @@
         android:layout_height="wrap_content"
         android:paddingVertical="5dp"
         android:textSize="20sp"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:textColor="#C1D6A9"/>
 
     <!--    This view shows a line between each item-->
     <View
         android:layout_width="wrap_content"
-        android:layout_height="1dp"
-        android:background="#C1D6A9" />
+        android:layout_height="2dp"
+        android:background="#A78ADC" />
 
 </LinearLayout>

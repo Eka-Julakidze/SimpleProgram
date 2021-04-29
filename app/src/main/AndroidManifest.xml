@@ -10,7 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SimpleProgram">
         <activity android:name=".BigOstructure"></activity>
-        <activity android:name=".BigOhStructure" />
         <activity android:name=".NotContain" />
         <activity android:name=".Split" />
         <activity android:name=".MainActivity">

@@ -57,8 +57,5 @@ public class MainActivity extends AppCompatActivity {
         Intent i = new Intent(MainActivity.this, BigOstructure.class);
         startActivity(i);
     }
-
-
-
 }
 
